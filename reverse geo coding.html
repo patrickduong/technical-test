@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Reverse Geocode</title>
+</head>
+
+<body>
+  <header>
+    <h1>Reverse Geocode</h1>
+    <p>NOTE: please search data like <b>40.714224,-73.961452</b>, <b>275-291 Bedford Ave</b>, <b>Brooklyn, New York, 11211 </p>
+  </header>
+  <div id="floating-panel">
+    <input id="search" type="text" value="40.714224,-73.961452" />
+    <input id="submit" type="button" value="Reverse Geocode" />
+  </div>
+
+  <script>
+    document.getElementById("submit").addEventListener("click", () => {
+      var input = document.getElementById("search").value;
+      if (input.split(",").length - 1 ===1){
+          getDataByLATandLNG(input);
+        }
+      else {
+          getDataByOthers(input);
+      };
+
+    });
+
+
+function getDataByOthers(input){
+  {
+      const APIKEY = 'AAPK26732d26157840478f88ad61750ae098e3LFfDC5cJ7rkgTY2vwEAeHZ-Gssj_p8kuW1DcvWRc6ZJAI-wkN0c2g-lnmF0BNZ';
+      let url = `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?singleLine=${input}&forStorage=true&token=${APIKEY}&f=pjson`;
+      fetch(url).then(response => {
+        if (response.status !==200){
+        console.log(" Unable to fetch, HTTP status is " + response.status);
+        return;
+        }
+        return response.json();
+      })
+        .then(data => {
+          console.log(data);
+          if (JSON.stringify(data) !== " ") {
+            var numOfMatch = data.candidates.length;
+            document.body.insertAdjacentHTML("beforeend", `<p><b> ${numOfMatch} Results of search </b> ${input}</p>`);
+            console.log(data.candidates.length);
+            for (var i= 0; i<data.candidates.length; i++ ){
+            document.body.insertAdjacentHTML("beforeend", `<p><b>${i+1} Geo latitude  </b> ${JSON.stringify(data.candidates[i].location.y)} 
+              <b>and longitude</b>${JSON.stringify(data.candidates[i].location.x)} \n <b> Address: </b> ${JSON.stringify(data.candidates[i].address)} 
+              </p>`);
+            }
+          }
+          else
+           console.log("no data found");
+        })
+        .catch(err => console.warn(err.message));
+      }
+   
+}
+
+function  getDataByLATandLNG(input){
+  //Given a pair of geo latitude and longitude, I want to assert against
+  // §  Address
+  // §  Postal code
+  // §  Country
+
+      const latlngStr = input.split(",", 2);
+      const LAT = parseFloat(latlngStr[0]);
+      const LNG = parseFloat(latlngStr[1]);
+      let url = `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=pjson&featureTypes=&location=${LNG}%2C${LAT}`;
+      fetch(url).then(response => {
+        if (response.status !==200){
+        console.log(" Unable to fetch, HTTP status is " + response.status);
+        return;
+        }
+        return response.json();
+      })
+        .then(data => {
+          console.log(data);
+          if (JSON.stringify(data.address.AddNum) !== " ") {
+            document.body.insertAdjacentHTML("beforeend", `<p><b>Result of Geo latitude:</b> ${JSON.stringify(data.location.y)}, <b>longitude:</b> ${JSON.stringify(data.location.x)} </p>`);
+            document.body.insertAdjacentHTML("beforeend", `<p><b>Address:</b> ${JSON.stringify(data.address.Match_addr).replace(/"/g, "")}</p>`);
+            document.body.insertAdjacentHTML("beforeend", `<p><b>PostalCode:</b> ${JSON.stringify(data.address.Postal).replace(/"/g, "")}</p>`);
+            document.body.insertAdjacentHTML("beforeend", `<p><b>CountryCode:</b> ${JSON.stringify(data.address.CountryCode).replace(/"/g, "")}</p>`);
+          }
+          else
+           console.log("no data found");
+        })
+        .catch(err => console.warn(err.message));
+      }
+  </script>
+</body>
+
+</html>
