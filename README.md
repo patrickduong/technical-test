@@ -17,3 +17,7 @@ Please note that this is app for checking reponse api.
   1. open file reverse geo coding.html
   2. Enter lalitude and longlitude cooridate and hit reverse geo code button (ex: 40.714224,-73.961452, 275-291)
   3. It will return the Address, PostalCode and CountryCode
+#Instructions for create automation framework and testing web app AMZ (support Window first)
+  1. Download AMZ
+  2. Install and setup any requirements, Environment inside README and Pom
+  3. Create test Folder Repo_testing and place AMZ and Resources folder at the same level 
