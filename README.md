@@ -20,4 +20,4 @@ Please note that this is app for checking reponse api.
 #Instructions for create automation framework and testing web app AMZ (support Window first)
   1. Download AMZ
   2. Install and setup any requirements, Environment inside README and Pom
-  3. Create test Folder Repo_testing and place AMZ and Resources folder at the same level 
+  3. Create test Folder Repo_testing and place AMZ and Resources folder at the same level (link for download Resources folder: https://drive.google.com/file/d/1jBx3fY0pFNMZ3hQ9K9Ly_Tyna7WfUH2j/view?usp=sharing)
