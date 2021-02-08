@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="AMZ_testsuit" duration-ms="47297" started-at="2021-02-06T15:14:08Z" finished-at="2021-02-06T15:14:56Z">
+    <groups>
+    </groups>
+    <test name="AMZ_TM" duration-ms="47297" started-at="2021-02-06T15:14:08Z" finished-at="2021-02-06T15:14:56Z">
+      <class name="test.AMZ_TM">
+        <test-method status="PASS" signature="Precondition(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.AMZ_TM@7af707e0]" name="Precondition" is-config="true" duration-ms="10944" started-at="2021-02-06T22:13:57Z" finished-at="2021-02-06T22:14:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[window]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://www.amazon.com.au/]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Precondition -->
+        <test-method status="PASS" signature="InitilizeObjects()[pri:0, instance:test.AMZ_TM@7af707e0]" name="InitilizeObjects" is-config="true" duration-ms="437" started-at="2021-02-06T22:14:08Z" finished-at="2021-02-06T22:14:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- InitilizeObjects -->
+        <test-method status="PASS" signature="TC01_AddViewDealItem()[pri:0, instance:test.AMZ_TM@7af707e0]" name="TC01_AddViewDealItem" duration-ms="21560" started-at="2021-02-06T22:14:09Z" description="TC01: Verify that user can add view deal item to shopping cart" finished-at="2021-02-06T22:14:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_AddViewDealItem -->
+        <test-method status="PASS" signature="TC02_AddSearchItem()[pri:0, instance:test.AMZ_TM@7af707e0]" name="TC02_AddSearchItem" duration-ms="24577" started-at="2021-02-06T22:14:31Z" description="TC02: Verify that user can a searched item to shopping cart" finished-at="2021-02-06T22:14:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02_AddSearchItem -->
+        <test-method status="PASS" signature="Postcondition()[pri:0, instance:test.AMZ_TM@7af707e0]" name="Postcondition" is-config="true" duration-ms="2" started-at="2021-02-06T22:14:56Z" finished-at="2021-02-06T22:14:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Postcondition -->
+      </class> <!-- test.AMZ_TM -->
+    </test> <!-- AMZ_TM -->
+  </suite> <!-- AMZ_testsuit -->
+</testng-results>

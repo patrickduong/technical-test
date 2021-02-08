@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AMZ_testsuit]">
+  <parameter name="Testurl" value="https://www.amazon.com.au/"/>
+  <parameter name="Platform" value="window"/>
+  <parameter name="Testbrowser" value="chrome"/>
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+  </listeners>
+  <test name="AMZ_TM(failed)">
+    <classes>
+      <class name="test.AMZ_TM">
+        <methods>
+          <include name="TC02_AddSearchItem"/>
+          <include name="Postcondition"/>
+          <include name="InitilizeObjects"/>
+          <include name="Precondition"/>
+        </methods>
+      </class> <!-- test.AMZ_TM -->
+    </classes>
+  </test> <!-- AMZ_TM(failed) -->
+</suite> <!-- Failed suite [AMZ_testsuit] -->

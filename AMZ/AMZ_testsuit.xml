@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="AMZ_testsuit" verbose="1">
+	<parameter name="Platform" value="window" />
+	<parameter name="Testurl" value="https://www.amazon.com.au/" />
+	<parameter name="Testbrowser" value="chrome" />
+		<listeners>
+ 		 <listener class-name="reports.TestNGCustomReportListener"/>
+ 		 <listener class-name="reports.AnnotationTransformer"/>
+ 		 <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+ 		 <listener class-name="org.uncommons.reportng.HTMLReporter" />
+	</listeners>
+	<test name="AMZ_TM">
+		<classes>
+			<class name="testmodules.AMZ_TM"></class>
+		</classes>
+	</test>
+</suite> 
